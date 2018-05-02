@@ -57,7 +57,7 @@ window.onload = function(){
     }
 
     function draw(){
-        console.log('drawing')
+        // console.log('drawing')
         requestAnimationFrame(draw);
         // random position on canvas
 
@@ -82,14 +82,7 @@ window.onload = function(){
                 // ctx.lineTo(centerX + x, centerY + y);
             }
 
-            var red = Math.round(Math.random()*200+55);
-            var green = Math.round(Math.random()*200+55);
-            var blue=Math.round(Math.random()*200+55);
-            // var color='rgb('+red+','+green+','+blue+')';
-            // OR	if you want to change alpha
-            var color='rgba('+red+','+green+','+blue+', '+ sShape.alpha+')'; 
-
-            ctx.strokeStyle = color;
+            ctx.strokeStyle = sShape.color;
             ctx.lineWidth= 2;
             ctx.stroke();
 
@@ -165,9 +158,20 @@ window.onload = function(){
         n3 = letter.n3
         incValue = values.incValue
         
-        console.log(a,b,m,n1,n2,n3);
+        // console.log(a,b,m,n1,n2,n3);
+
+        for( let sShape of superShapes ) {
+        var red = Math.round(Math.random()*200+55);
+        var green = Math.round(Math.random()*200+55);
+        var blue=Math.round(Math.random()*200+55);
+        // var color='rgb('+red+','+green+','+blue+')';
+        // OR	if you want to change alpha
+        var color='rgba('+red+','+green+','+blue+', '+ sShape.alpha+')'; 
+        }
         
-        superShapes.push( Object.assign({}, letter, { alpha:1, centerX:0, centerY:0, maxPoints:512, incVal:10 }) )
+        superShapes.push( Object.assign({}, letter, { alpha:1, centerX: Math.random() * canvas.width, 
+            centerY: Math.random() * canvas.height, maxPoints:512, incVal:10, color: color }) )
+        
         // UNDO HERE
         //draw();
         //fadeAway();
