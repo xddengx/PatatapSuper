@@ -9,10 +9,11 @@ function makeColor(red, green, blue, alpha){
 function getRandomColor(){
 	var red = Math.round(Math.random()*200+55);
 	var green = Math.round(Math.random()*200+55);
-	var blue=Math.round(Math.random()*200+55);
-	var color='rgb('+red+','+green+','+blue+')';
+    var blue=Math.round(Math.random()*200+55);
+    var alpha = 1
+	// var color='rgb('+red+','+green+','+blue+')';
 	// OR	if you want to change alpha
-	// var color='rgba('+red+','+green+','+blue+',0.50)'; // 0.50
+	var color='rgba('+red+','+green+','+blue+', '+alpha+')'; 
 	return color;
 }
 
@@ -39,4 +40,14 @@ function makeGradient(){
     return grad;
 }
 
+// Clear Canvas
+// function clearCanvas(){
+//     ctx.clearRect(0, 0, canvas.width, canvas.height);
+// }
+
 // Fade Away
+// function fadeAway(){
+//     decAlpha -= .01
+//     var disappear = 'rgba('+red+','+green+','+blue+', '+alpha+')'; 
+//     ctx.stroke = disappear
+// }
