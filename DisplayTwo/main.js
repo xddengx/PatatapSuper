@@ -15,6 +15,7 @@ window.onload = function(){
     // let a = 1, b = 1;
     // let m = 5, n1 = 1, n2 = 1, n3 = 1;
     let a, b, m, n1, n2, n3, inc;
+    let osc = 0;
     var patSuper;
 
     const superShape = function(phi){
@@ -65,6 +66,7 @@ window.onload = function(){
     // dictionary for letters. 
     // contains audio and values changing the superformula
 
+    osc += 0.01
     let values = {
         a: 1,
         b: 1,
@@ -79,7 +81,7 @@ window.onload = function(){
 
      letters = {
         a: { soundfile:'boomKick.wav', a: values.a, b: values.b, m: values.m, n1: values.n1, n2: values.n2, n3: values.n3, inc: values.inc, radius: values.radius, maxPoints: values.maxPoints},
-        b: { soundfile: 'acmeSiren.wav', a: values.a, b: values.b, m: values.m, n1: values.n1, n2: values.n2, n3: values.n3,inc: values.inc, radius: values.radius, maxPoints: values.maxPoints},
+        b: { soundfile: 'acmeSiren.wav', a: values.a, b: values.b, m: values.m, n1: values.n1, n2: values.n2, n3: values.n3, inc: values.inc, radius: values.radius, maxPoints: values.maxPoints},
         c: { soundfile: 'clap.wav', a: values.a, b: values.b, m: values.m, n1: values.n1, n2: values.n2, n3: values.n3,inc: values.inc, radius: values.radius, maxPoints: values.maxPoints},
         d: { soundfile: 'laser.wav', a: values.a, b: values.b, m: values.m, n1: values.n1, n2: values.n2, n3: values.n3,inc: values.inc, radius: values.radius, maxPoints: values.maxPoints},
         e: { soundfile: 'poweron.wav', a: values.a, b: values.b, m: values.m, n1: values.n1, n2: values.n2, n3: values.n3,inc: values.inc, radius: values.radius, maxPoints: values.maxPoints},
