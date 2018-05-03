@@ -63,8 +63,7 @@ window.onload = function(){
 
         fadeAway();
     
-    ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-    ctx.fillRect(0, 0,  window.innerWidth, window.innerHeight);
+    clearCanvas();
 
         for( let sShape of superShapes ) {
             const startPoint = superShape(0, sShape);
@@ -89,7 +88,7 @@ window.onload = function(){
             //superShapes.push()
 
             
-            console.log(sShape.radius, sShape.a, sShape.b, sShape.n1 );
+            // console.log(sShape.radius, sShape.a, sShape.b, sShape.n1 );
         }
     }
 
@@ -124,12 +123,6 @@ window.onload = function(){
     // contains audio and values changing the superformula
 
     let values = {
-        a: 1,
-        b: 1,
-        m: 7,
-        n1: 1,
-        n2: 1.70,
-        n3: 1.70,
         incValue: 50
     }
 
@@ -139,14 +132,37 @@ window.onload = function(){
         c: { soundfile: 'clap.wav', a:0.2, b:0.76, m:20, n1:5, n2:-1.70, n3: 3.70, incValue: values.incValue},
         d: { soundfile: 'laser.wav', a:0.45, b:.22, m:5, n1:11, n2:15, n3: 17.70, incValue: values.incValue},
         e: { soundfile: 'poweron.wav', a:0.88, b:3, m:9, n1:83, n2:33.2, n3: 40, incValue: values.incValue},
-        f: { soundfile: 'whoosh.wav', a:0.60, b:0.2, m:4, n1:33, n2:4.70, n3: 3.70, incValue: values.incValue},
-     }
+        f: { soundfile: 'whoosh.wav', a:1, b:1, m:7, n1:1, n2:25.7, n3:-13.4, incValue: 2},
+        g: { soundfile: 'bubbles.wav', a:1, b:1, m:7, n1:1, n2:17.00, n3: 3, incValue: 2},
+        h: { soundfile: 'ebeeps.wav', a:1, b:1, m:7, n1:-16.6, n2:50.00, n3: 30, incValue: 2},
+        i: { soundfile: 'jingle.wav', a:1, b:1, m:7, n1:-16.6, n2:50.00, n3: 17, incValue: 2},
+        j: { soundfile: 'persian.wav', a:1, b:1, m:-22, n1:-5.8, n2:4, n3: 22.4, incValue: 2},
+        k: { soundfile: 'robotic.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 41.2, incValue: 41},
+        l: { soundfile: 'snare.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 5.5, incValue: 41},
+        m: { soundfile: 'vinyl.wav', a:1, b:-6.9, m:-22, n1:-5.8, n2:4, n3: 22.4, incValue: 2},
+        n: { soundfile: 'rev.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 5.5, incValue: 22},
+        o: { soundfile: 'magicBells.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 5.5, incValue: 7},
+        p: { soundfile: 'kickSnare.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 5.5, incValue: 7},
+        q: { soundfile: 'glassShatter.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
+        r: { soundfile: 'jingles.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
+        s: { soundfile: 'iceSpell.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
+        // t: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
+        // u: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
+        // v: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
+        // w: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
+        // x: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
+        // y: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
+        // z: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
+        
+
+        
+    }
 
     // Function to detect which key is pressed and draw super shape
      window.addEventListener("keypress", function(e){
         // console.log(e);
         let letter = letters[ e.key ]
-        console.log(letter);
+        // console.log(letter);
 
         // Play audio
         playAudio(letter.soundfile);
@@ -169,6 +185,7 @@ window.onload = function(){
         var color='rgba('+red+','+green+','+blue+', '+ sShape.alpha+')'; 
         }
         
+        // creates an object and assigns the object all the letter attributes and adding extra attributes
         superShapes.push( Object.assign({}, letter, { alpha:1, centerX: Math.random() * canvas.width, 
             centerY: Math.random() * canvas.height, maxPoints:512, incVal:10, color: color }) )
         
@@ -187,33 +204,7 @@ window.onload = function(){
         audio.play()
     }
 
-    patSuper = {
-
-        displayOne: function(){
-            console.log("Display #1");
-            clearCanvas();
-        },
-        displayTwo: function(){
-            a: 0.2;
-            b: 0.76;
-            m: 20;
-            n1: 5;
-            n2: -1.70;
-            n3: 3.70;
-            console.log("Display #2");
-            clearCanvas();
-        }
-    }
-
     var gui = new dat.GUI();
-    gui.add(patSuper, 'displayOne').onChange(patSuper.displayOne);
-    gui.add(patSuper, 'displayTwo').onChange(patSuper.displayTwo);
-    gui.add(values, 'a', -50, 50);
-    gui.add(values, 'b', -50, 50);
-    gui.add(values, 'm', -50, 50);
-    gui.add(values, 'n1', -50, 50);
-    gui.add(values, 'n2', -50, 50);
-    gui.add(values, 'n3', -50, 50);
     gui.add(values, 'incValue', 0, 450);
 
     draw()
