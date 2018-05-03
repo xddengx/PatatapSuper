@@ -75,10 +75,6 @@ window.onload = function(){
             for(let i = 0; i < sShape.maxPoints; i++){
                 let [x,y] = superShape(i * increment, sShape);
                 ctx.lineTo(sShape.centerX + x, sShape.centerY + y);
-        
-                // let x = Math.sin(i * increment) * radius;
-                // let y = Math.cos(i * increment) * radius;
-                // ctx.lineTo(centerX + x, centerY + y);
             }
 
             ctx.strokeStyle = sShape.color;
@@ -145,11 +141,11 @@ window.onload = function(){
         n: { soundfile: 'rev.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 5.5, incValue: 22, radius: 50, maxPoints: 512},
         o: { soundfile: 'magicBells.wav', a:1, b:1, m:-10.8, n1:28.2, n2: 28.2, n3: -53.1, incValue: 18, radius: 32, maxPoints: 512},
         p: { soundfile: 'kickSnare.wav', a:1, b:1, m:2.2, n1:12, n2: 47.7, n3: -53.1, incValue: 18, radius: 32, maxPoints: 512},
-        q: { soundfile: 'glassShatter.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: 50, maxPoints: 512},
-        r: { soundfile: 'jingles.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius:50, maxPoints: 512},
-        s: { soundfile: 'iceSpell.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: 50, maxPoints: 512},
-        // t: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
-        // u: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
+        q: { soundfile: 'glassShatter.wav', a:1, b:1, m:-43.3, n1:1, n2:1.7, n3: -10.8, incValue: 37, radius: 32, maxPoints: 332},
+        r: { soundfile: 'jingles.wav', a:1, b:1, m:7, n1:1, n2:2.2, n3: 28.2, incValue: 83, radius: 19, maxPoints: 423},
+        s: { soundfile: 'iceSpell.wav', a: 2.2, b:1, m:7, n1:1, n2:1.7, n3: 1.7, incValue: 20, radius: 31, maxPoints: 158},
+        t: { soundfile: 'kickSnare.wav', a:1, b:1, m:7, n1:1, n2:1.70, n3: 25, incValue: 102, radius: 47, maxPoints: 568},
+        u: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: values.maxPoints},
         // v: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
         // w: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
         // x: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
@@ -191,7 +187,7 @@ window.onload = function(){
         
         // creates an object and assigns the object all the letter attributes and adding extra attributes
         superShapes.push( Object.assign({}, letter, { alpha:1, centerX: Math.random() * canvas.width, 
-            centerY: Math.random() * canvas.height, color: color }) )
+            centerY: Math.random() * canvas.height, incValue: incValue, radius: radius, maxPoints: maxPoints, color: color }) )
         
         // UNDO HERE
         //draw();
