@@ -8,8 +8,8 @@ window.onload = function(){
     /* --------------- SUPER FORMULA --------------- */
 
     // variables for drawing super shape
-    let radius = 50;
-    let maxPoints = 512;
+    let radius;
+    let maxPoints;
     let startX = Math.sin(0);
     let startY = Math.cos(0);
     // let a = 1, b = 1;
@@ -123,36 +123,38 @@ window.onload = function(){
     // contains audio and values changing the superformula
 
     let values = {
-        incValue: 50
+        incValue: 50,
+        radius: 50,
+        maxPoints: 512
     }
 
      letters = {
-        a: { soundfile:'boomKick.wav', a:1, b:1, m:7, n1:1, n2:1.70, n3: 1.70, incValue: values.incValue},
-        b: { soundfile: 'acmeSiren.wav', a:3, b:4, m:3, n1:1.5, n2:0.70, n3: 2.70, incValue: values.incValue},
-        c: { soundfile: 'clap.wav', a:0.2, b:0.76, m:20, n1:5, n2:-1.70, n3: 3.70, incValue: values.incValue},
-        d: { soundfile: 'laser.wav', a:0.45, b:.22, m:5, n1:11, n2:15, n3: 17.70, incValue: values.incValue},
-        e: { soundfile: 'poweron.wav', a:0.88, b:3, m:9, n1:83, n2:33.2, n3: 40, incValue: values.incValue},
-        f: { soundfile: 'whoosh.wav', a:1, b:1, m:7, n1:1, n2:25.7, n3:-13.4, incValue: 2},
-        g: { soundfile: 'bubbles.wav', a:1, b:1, m:7, n1:1, n2:17.00, n3: 3, incValue: 2},
-        h: { soundfile: 'ebeeps.wav', a:1, b:1, m:7, n1:-16.6, n2:50.00, n3: 30, incValue: 2},
-        i: { soundfile: 'jingle.wav', a:1, b:1, m:7, n1:-16.6, n2:50.00, n3: 17, incValue: 2},
-        j: { soundfile: 'persian.wav', a:1, b:1, m:-22, n1:-5.8, n2:4, n3: 22.4, incValue: 2},
-        k: { soundfile: 'robotic.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 41.2, incValue: 41},
-        l: { soundfile: 'snare.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 5.5, incValue: 41},
-        m: { soundfile: 'vinyl.wav', a:1, b:-6.9, m:-22, n1:-5.8, n2:4, n3: 22.4, incValue: 2},
-        n: { soundfile: 'rev.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 5.5, incValue: 22},
-        o: { soundfile: 'magicBells.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 5.5, incValue: 7},
-        p: { soundfile: 'kickSnare.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 5.5, incValue: 7},
-        q: { soundfile: 'glassShatter.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
-        r: { soundfile: 'jingles.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
-        s: { soundfile: 'iceSpell.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
-        // t: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
-        // u: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
-        // v: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
-        // w: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
-        // x: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
-        // y: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
-        // z: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue},
+        a: { soundfile:'boomKick.wav', a:1, b:1, m:7, n1:1, n2:1.70, n3: 1.70, incValue: 50, radius: 50, maxPoints: 512},
+        b: { soundfile: 'acmeSiren.wav', a:3, b:4, m:3, n1:1.5, n2:0.70, n3: 2.70, incValue: 50, radius: 50, maxPoints: 512},
+        c: { soundfile: 'clap.wav', a:0.2, b:0.76, m:20, n1:5, n2:-1.70, n3: 3.70, incValue: 50, radius: 50, maxPoints: 512},
+        d: { soundfile: 'laser.wav', a:0.45, b:.22, m:5, n1:11, n2:15, n3: 17.70, incValue: 50, radius: 50, maxPoints: 512},
+        e: { soundfile: 'poweron.wav', a:0.88, b:3, m:9, n1:83, n2:33.2, n3: 40, incValue: 50, radius: 50, maxPoints: 512},
+        f: { soundfile: 'whoosh.wav', a:1, b:1, m:7, n1:1, n2:25.7, n3:-13.4, incValue: 2, radius: 50, maxPoints: 512},
+        g: { soundfile: 'bubbles.wav', a:1, b:1, m:7, n1:1, n2:17.00, n3: 3, incValue: 2, radius: 50, maxPoints: 512},
+        h: { soundfile: 'ebeeps.wav', a:1, b:1, m:7, n1:-16.6, n2:50.00, n3: 30, incValue: 2, radius: 50, maxPoints: 512},
+        i: { soundfile: 'jingle.wav', a:1, b:1, m:7, n1:1, n2:1.7, n3: 21.7, incValue: 14, radius: 50, maxPoints: 512},
+        j: { soundfile: 'persian.wav', a:1, b:1, m:-22, n1:-5.8, n2:4, n3: 22.4, incValue: 2, radius: 50, maxPoints: 512},
+        k: { soundfile: 'robotic.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 41.2, incValue: 41, radius: 50, maxPoints: 512},
+        l: { soundfile: 'snare.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 5.5, incValue: 41, radius: 50, maxPoints: 512},
+        m: { soundfile: 'vinyl.wav', a:1, b:-6.9, m:-22, n1:-5.8, n2:4, n3: 22.4, incValue: 2, radius: 50, maxPoints: 512},
+        n: { soundfile: 'rev.wav', a:1, b:96.5, m:8.7, n1:67.2, n2:51, n3: 5.5, incValue: 22, radius: 50, maxPoints: 512},
+        o: { soundfile: 'magicBells.wav', a:1, b:1, m:-10.8, n1:28.2, n2: 28.2, n3: -53.1, incValue: 18, radius: 32, maxPoints: 512},
+        p: { soundfile: 'kickSnare.wav', a:1, b:1, m:2.2, n1:12, n2: 47.7, n3: -53.1, incValue: 18, radius: 32, maxPoints: 512},
+        q: { soundfile: 'glassShatter.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: 50, maxPoints: 512},
+        r: { soundfile: 'jingles.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius:50, maxPoints: 512},
+        s: { soundfile: 'iceSpell.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: 50, maxPoints: 512},
+        // t: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
+        // u: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
+        // v: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
+        // w: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
+        // x: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
+        // y: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
+        // z: { soundfile: 'kickSnare.wav', a:1.60, b:1.2, m:4, n1:23, n2:4.70, n3: 3.70, incValue: values.incValue, radius: values.radius, maxPoints: 512},
         
 
         
@@ -173,6 +175,8 @@ window.onload = function(){
         n2 = letter.n2
         n3 = letter.n3
         incValue = values.incValue
+        radius = values.radius
+        maxPoints = values.maxPoints
         
         // console.log(a,b,m,n1,n2,n3);
 
@@ -187,7 +191,7 @@ window.onload = function(){
         
         // creates an object and assigns the object all the letter attributes and adding extra attributes
         superShapes.push( Object.assign({}, letter, { alpha:1, centerX: Math.random() * canvas.width, 
-            centerY: Math.random() * canvas.height, maxPoints:512, incVal:10, color: color }) )
+            centerY: Math.random() * canvas.height, color: color }) )
         
         // UNDO HERE
         //draw();
@@ -206,6 +210,8 @@ window.onload = function(){
 
     var gui = new dat.GUI();
     gui.add(values, 'incValue', 0, 450);
+    gui.add(values, 'radius', 0, 150);
+    gui.add(values, 'maxPoints', 0, 700);
 
     draw()
 }
