@@ -12,8 +12,6 @@ window.onload = function(){
     let maxPoints;
     let startX = Math.sin(0);
     let startY = Math.cos(0);
-    // let a = 1, b = 1;
-    // let m = 5, n1 = 1, n2 = 1, n3 = 1;
     let a, b, m, n1, n2, n3;
     let incValue;
     var patSuper;
@@ -22,21 +20,6 @@ window.onload = function(){
 
 
     var superShapes = [];
-    /*var sShape = {
-        radius: radius,
-        maxPoints: maxPoints,
-        a:a,
-        b:b,
-        m:m,
-        n1:n1,
-        n2:n2,
-        n3:n3,
-        centerX: centerX,
-        centerY: centerY,
-        incValue: incValue,
-        alpha: 1
-    }*/
-
 
     const superShape = function(phi,sShape){
         
@@ -57,13 +40,9 @@ window.onload = function(){
     }
 
     function draw(){
-        // console.log('drawing')
         requestAnimationFrame(draw);
-        // random position on canvas
-
         fadeAway();
-    
-    clearCanvas();
+        clearCanvas();
 
         for( let sShape of superShapes ) {
             const startPoint = superShape(0, sShape);
@@ -80,37 +59,20 @@ window.onload = function(){
             ctx.strokeStyle = sShape.color;
             ctx.lineWidth= 2;
             ctx.stroke();
-
-            //superShapes.push()
-
-            
-            // console.log(sShape.radius, sShape.a, sShape.b, sShape.n1 );
         }
     }
 
     function fadeAway(){
-        //requestAnimationFrame(fadeAway);
         superShapes.forEach(function(s)
         {
-            s.alpha -= .01
-            //var fade = 'rgba(' + s.red + ',' + s.g + ',' + s.b + ', ' + 1 + ')'  
-            //s.fill = fade
-             
+            s.alpha -= .01             
             if(s.alpha < 0)
             {
                 var index = superShapes.indexOf(s)
                 superShapes.splice(index,1)
             }
         })
-
-        // console.log(sShape.alpha);
     }
-
-    // function fadeAway(){
-    //     requestAnimationFrame(fadeAway);
-    //     ctx.fillStyle = 'rgba(0, 0, 0, 0.001)';
-    //     ctx.fillRect(0, 0,  window.innerWidth, window.innerHeight);
-    // }
 
     /* --------------- PATATAP  --------------- */
     let soundFile = '../sound/'
@@ -178,17 +140,12 @@ window.onload = function(){
         var green = Math.round(Math.random()*200+55);
         var blue=Math.round(Math.random()*200+55);
         // var color='rgb('+red+','+green+','+blue+')';
-        // OR	if you want to change alpha
         var color='rgba('+red+','+green+','+blue+', '+ sShape.alpha+')'; 
         }
         
         // creates an object and assigns the object all the letter attributes and adding extra attributes
         superShapes.push( Object.assign({}, letter, { alpha:1, centerX: Math.random() * canvas.width, 
             centerY: Math.random() * canvas.height, color: color }) )
-        
-        // UNDO HERE
-        //draw();
-        //fadeAway();
      })
 
     function clearCanvas(){
