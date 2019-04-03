@@ -1,18 +1,25 @@
 <!doctype!>
-<html>
+    <html>
+
     <head>
-        <meta charset = 'utf-8'>
+        <meta charset='utf-8'>
         <title> Remix Patatap</title>
-        <script src = 'helperFunctions/helper.js'></script>
-        <script src = 'main.js'></script>       
-        <script type="text/javascript" src="datGUI.js"></script> 
-        <style>
-        canvas {
-            background-color: black;
-        }
-        </style>
+        <script src='helperFunctions/helper.js'></script>
+        <script src='main.js'></script>
+        <script type="text/javascript" src="datGUI.js"></script>
+        <link rel="stylesheet" type="text/css" href="main.css">
     </head>
+
     <body>
-        <canvas></canvas>
+        <div id="info">
+            <div id="infoText">
+                <span class="close">&times;</span>
+                <h3>Controls</h3>
+                <p>Using your keyboard press on a single letter or multiple letters (a-z) at a time. Each letter produces a different sound and shape.</p>
+            </div>
+        </div>
+        <canvas>
+        </canvas>
     </body>
-</html>
+
+    </html>
