@@ -1,7 +1,7 @@
 # SuperMix
 
 
-Link to project: https://people.rit.edu/dxd4832/SuperMix/
+Link to project: https://dinadeng.com/project/SuperMix/index.html
 
 Controls/Info:
 - Using your keyboard press on single/multiple letters a-z
